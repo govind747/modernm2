@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 // app/page.tsx - Fix the petCategories type
 
 import { createServerSupabaseClient } from '@/lib/supabase/server'

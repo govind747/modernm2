@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 import { createServerSupabaseClient } from '@/lib/supabase/server'
 import { ProductDetails } from '@/components/products/ProductDetails'
 import { ProductSpecifications } from '@/components/products/ProductSpecifications'
