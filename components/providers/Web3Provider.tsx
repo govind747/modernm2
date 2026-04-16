@@ -20,6 +20,16 @@ const wagmiAdapter = new WagmiAdapter({
 
 // Only initialize once on the client — guarded via a module-level flag on globalThis
 // so Next.js Fast Refresh doesn't call it multiple times.
+function getSafeAppUrl(): string {
+  const raw = process.env.NEXT_PUBLIC_APP_URL
+  try {
+    if (raw) new URL(raw)
+    return raw || 'https://modernmart.vercel.app'
+  } catch {
+    return 'https://modernmart.vercel.app'
+  }
+}
+
 const _g = typeof globalThis !== 'undefined' ? (globalThis as any) : {}
 if (!_g.__appkit_initialized) {
   _g.__appkit_initialized = true
@@ -30,7 +40,7 @@ if (!_g.__appkit_initialized) {
     metadata: {
       name: 'ModernMart',
       description: 'Web3 Ecommerce',
-      url: process.env.NEXT_PUBLIC_APP_URL || 'https://modernmart.vercel.app',
+      url: getSafeAppUrl(),
       icons: ['https://avatars.githubusercontent.com/u/179229932'],
     },
     features: {
