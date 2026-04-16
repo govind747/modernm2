@@ -12,6 +12,8 @@ const nextConfig = {
       encoding: false,
       'pino-pretty': false,
       lokijs: false,
+      bufferutil: false,
+      'utf-8-validate': false,
     };
 
     // 2. 🔥 BLOCKING PROBLEM MODULES
